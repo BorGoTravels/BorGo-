@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>RoadMap - BorGo!</title>
+  <link rel="stylesheet" href="Stile1.css" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+	<!--MENU-->
+	<div id="container" role="application">
+		<aside id="sidebar" aria-label="Menu laterale">
+			<div id="logo-box" aria-label="Logo placeholder" role="img"><a href="BorGo.html"><img src="img/Logo.png" alt="Logo"></a></div>
+			<nav role="navigation" aria-label="Menu principale">
+			  <a href="BorGo.html" tabindex="0">Home</a>
+			  <a href="Mission.html" tabindex="0">Mission</a>
+			  <a href="Viaggi.html" tabindex="0">Viaggi</a>
+			  <a href="ChiSiamo.html" tabindex="0">Chi Siamo</a>
+			  <a href="RoadMap.html" tabindex="0">Road Map</a>
+			</nav>
+		</aside>
+	
+    <!--PRIMA PAGINA-->
+	<main tabindex="0">
+    <!--HEADER-->    
+		<header>
+			<img src="img/ScrittaLogo.png" alt="BorGo!">
+		</header>
+	<!--MAIN INFO-->	
+    <div class="content-area">
+        <!--TOP PAGINA CON MAPPA-->
+        <div class="sfondo3">
+			<div class="map">
+				<h1>Mappa di tutti i borghi all'interno dell'Emilia-Romagna</h1>
+			<div id="map"></div>
+			<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+			<script>
+			// Inizializza la mappa centrata sull'Emilia-Romagna
+			var map = L.map('map').setView([44.7, 11.2], 8);
+
+			// Layer OpenStreetMap
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			  attribution: '© OpenStreetMap contributors'
+			}).addTo(map);
+
+			// Città principali Emilia-Romagna con coordinate GPS precise
+			var cities = [
+			  // Piacenza e dintorni
+			  [44.6263, 9.5826],       // Bobbio
+			  [44.9137, 9.8855],       // Castell'Arquato
+			  [45.0131, 9.6828],       // Cortemaggiore
+			  [45.0413, 9.5928],       // Vigolo Marchese
+			  [44.8651, 9.6536],       // Vigoleno
+			  [44.7993, 9.6039],       // Gropparello
+			  [44.9029, 9.7521],       // Carpaneto Piacentino
+			  [44.8167, 9.7167],       // Vernasca
+
+			  // Ferrara e dintorni
+			  [44.6644, 12.1856],      // Comacchio
+			  [44.6624, 11.7450],      // Argenta
+			  [44.7130, 12.0152],      // Portomaggiore
+			  [44.9099, 11.5646],      // Vigarano Mainarda
+			  [44.8279, 11.6901],      // Codigoro
+			  [44.8044, 11.7747],      // Ostellato
+			  [44.8576, 11.7432],      // Bondeno
+			  [44.7483, 11.3705],      // Cento
+			  [44.7933, 11.6967],      // Fiscaglia
+
+			  // Reggio Emilia e dintorni
+			  [44.9124, 10.5853],      // Boretto
+			  [44.9007, 10.7470],      // Gualtieri
+			  [44.6949, 10.7346],      // Novellara
+			  [44.6690, 10.7133],      // Canossa
+			  [44.5806, 10.3844],      // Rossena
+			  [44.7263, 10.7058],      // San Polo d'Enza
+
+			  // Ravenna
+			  [44.2831, 11.8208],      // Brisighella
+			  [44.1400, 12.3139],      // Bagnara di Romagna
+
+			  // Forlì-Cesena
+			  [44.1362, 12.0947],      // Bertinoro
+			  [44.0504, 12.2252],      // Civitella di Romagna
+			  [43.9992, 12.3221],      // San Leo
+			  [44.1691, 12.2527],      // Longiano
+			  [44.1870, 12.3268],      // Sarsina
+			  [43.9689, 12.4460],      // Verucchio
+
+			  // Parma e dintorni
+			  [44.7919, 10.3166],      // Fontanellato
+			  [44.8155, 10.3416],      // Colorno
+			  [44.8152, 10.3667],      // Torrile
+			  [44.8870, 10.0992],      // Salsomaggiore Terme
+			  [44.7456, 10.2463],      // Sala Baganza
+			  [44.8001, 10.2380],      // Noceto
+			  [44.8436, 10.1621],      // Fidenza
+
+			  // Rimini e dintorni
+			  [44.0997, 12.4813],      // Santarcangelo di Romagna
+			  [43.9689, 12.4460],      // Verucchio
+			  [43.9992, 12.3221],      // San Leo
+			  [43.9496, 12.5672],      // Montefiore Conca
+			  [43.9877, 12.6003],      // Montegridolfo
+			  [44.0152, 12.5777],      // San Giovanni in Marignano
+			  [44.1429, 12.3338],      // Cesenatico
+			  [44.1407, 12.4480],      // Bellaria-Igea Marina
+			  [43.9856, 12.6424],      // Misano Adriatico
+			  [43.9969, 12.6083],      // Cattolica
+
+			  // Bologna e dintorni
+			  [44.5168, 11.1477],      // La Scola - Monteveglio
+			  [44.5082, 11.2492],      // Castello di Serravalle
+			  [44.5179, 11.2467],      // Tresana
+			  [44.5300, 11.2150],      // Monteveglio
+			  [44.4600, 11.1560],      // Monteacuto delle Alpi
+			  [44.3910, 11.2200],      // Savigno
+			  [44.2833, 11.1667],      // Granaglione
+			  [44.3945, 11.3396],      // Stagno
+
+			  // Modena e dintorni
+			  [44.5200, 11.0361],      // Spilamberto
+			  [44.3885, 11.0328],      // Vignola
+			  [44.6205, 11.0665],      // Castelnuovo Rangone
+			  [44.4956, 10.9263],      // Rocca Malatina
+			  [44.5500, 11.0000],      // Giuglia (da verificare posizione)
+			  [44.5216, 11.1588],      // Marano
+			  [44.6000, 10.9333],      // Castelvetro
+			  [44.3746, 10.8644],      // Zocca
+			  [44.6100, 11.0333],      // Savignano sul Panaro
+			  [44.5700, 11.0800]       // Lavizzano Rangone
+			];
+
+			// Aggiungi i marker senza nome e popup
+			cities.forEach(function(coords) {
+			  L.marker(coords).addTo(map);
+			});
+			</script>
+			</div>
+		</div>
+		<!--COLLEGO-->
+        <div class="next-page" aria-label="Link alla pagina viaggi">
+            <a href="Viaggi.html" title="Vai alla pagina Viaggi">Scopri un borgo &raquo;</a>
+        </div>
+		<!--FOOTER-->
+        <footer>
+          <div class="footer-container">
+            <div class="footer-section">
+              <h4>BorGo Travels</h4>
+              <p>© 2025 BorGo Travels. Tutti i diritti riservati.</p>
+            </div>
+            <div class="footer-section">
+              <h4>Contatti</h4>
+              <p>Via Azzo Novello, 4 Ferrara, Italia</p>
+              <p>Tel: +39 0532-209345</p>
+              <p>Email: <a href="mailto:infoo.BorGo@gmail.com">infoo.BorGo@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+              <h4>Seguici</h4>
+              <p>
+                <a href="https://www.facebook.com/p/Bachelet-Ferrara-100049242535680/" aria-label="Facebook" tabindex="0" target=”_new”>Facebook</a> |
+                <a href="https://www.instagram.com/bachelet_ferrara/" aria-label="Instagram" tabindex="0" target=”_new”>Instagram</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+	  </div>
+	</main>
+	</div>
+
+</body>
+</html>
+</content>
+</create_file>
