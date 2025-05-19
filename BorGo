@@ -1,0 +1,114 @@
+!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>BorGo! - Home</title>
+  <link rel="stylesheet" href="Stile.css" type="text/css">
+</head>
+
+<body>
+	<!--MENU-->
+	<div id="container" role="application">
+		<aside id="sidebar" aria-label="Menu laterale">
+			<div id="logo-box" aria-label="Logo placeholder" role="img"><a href="BorGo.html"><img src="img/Logo.png" alt="Logo"></a></div>
+			<nav role="navigation" aria-label="Menu principale">
+			  <a href="BorGo.html" tabindex="0">Home</a>
+			  <a href="Mission.html" tabindex="0">Mission</a>
+			  <a href="Viaggi.html" tabindex="0">Viaggi</a>
+			  <a href="ChiSiamo.html" tabindex="0">Chi Siamo</a>
+			  <a href="RoadMap.html" tabindex="0">Road Map</a>
+			</nav>
+		</aside>
+	
+    <!--PRIMA PAGINA-->
+	<main tabindex="0">
+    <!--HEADER-->    
+		<header>
+			<img src="img/ScrittaLogo.png" alt="BorGo!">
+		</header>
+	<!--MAIN INFO-->	
+    <div class="content-area">
+        <!--TOP PAGINA-->
+        <section aria-labelledby="title" class="top">
+          <h2>Alla scoperta di borghi nascosti</h2>
+          <div class="grande">
+            <div class="sezione1">
+              <H3> IL BELLO DI VIAGGIARE IN GRUPPO </H3>
+              <p> I viaggi di gruppo sono parte del nostro DNA: con più di 100 itinerari in oltre 20 destinazioni, siamo pronti a portarti ovunque, sempre in compagnia di altri viaggiatori appassionati di scoperta e guidati dall'esperienza dei nostri accompagnatori. Tutto in piena sicurezza e totale tranquillità. </p>
+            </div>
+            <div class="sezione1">
+              <H3> PARTIAMO DA TUTTA EMILIA-ROMAGNA </H3>
+              <p> Abbiamo diversi punti di partenza in tutto il territorio emiliano-romagnolo per partecipare ai nostri viaggi in pullman. In più, in diversi comuni possiamo venirti a prendere direttamente a casa con una navetta condivisa. Per i viaggi in aereo invece potrai scegliere di partire da tutti i principali aereoporti italiani. </p>
+            </div>
+            <div class="sezione2">
+              <A href="Viaggi.html"><H3> Scopri tutti i nostri viaggi </H3></A>
+            </div>
+          </div>
+        </section>
+        <!--MIDDLE PAGINA-->
+        <section aria-labelledby="title" class="middle">
+          <h2>I nostri viaggi di gruppo</h2>
+          <div class="grande">
+            <div class="sezione3">
+              <a href="Viaggi.html">IN EVIDENZIA</a>
+              <img src="img/foto1.jpg">
+            </div>
+            <div class="sezione3">
+              <a href="Viaggi.html">I PIU' AMATI</a>
+              <img src="img/foto2.jpg">
+            </div>
+            <div class="sezione3">
+              <a href="Viaggi.html">NOVITA'</a>
+              <img src="img/foto3.png">
+            </div>
+          </div>
+        </section>
+        <!--BOTTOM PAGINA-->
+        <section aria-labelledby="title" class="middle">
+          <h2>Come funziona un nostro tour</h2>
+          <div class="grande">
+            <div class="sezione4">
+              <H3> PARTI IN PULLMAN </H3>
+              <p> Negli itinerari che prevedono il pullman come mezzo di trasporto per raggiungere la destinazione, è possibile partire da diversi punti di ritrovo in tutto il territorio italiano. </p>
+            </div>
+            <div class="sezione4">
+              <H3> PARTI IN TRENO </H3>
+              <p> Negli itinerari che utilizzano il treno come mezzo di trasporto per raggiungere la destinazione, è possibile partire da diverse stazioni ferroviarie in tutto il territorio italiano. Grazie alla rete ferroviaria ben sviluppata, potrai facilmente accedere a numerose città e paesaggi incantevoli, godendo di un viaggio confortevole e panoramico. </p>
+            </div>
+            <div class="sezione4">
+              <H3> PARTI IN AUTONOMIA </H3>
+              <p> Per chi preferisce arrivare a destinazione in autonomia è possibile scegliere questa opzione per la parteza. <br> Incontrerai il gruppo il primo giorno e scegliere come raggiungere il punto di partenza del tour nel modo che preferisci. </p>
+            </div>
+          </div>
+        </section>
+        <!--FOOTER-->
+        <footer>
+          <div class="footer-container">
+            <div class="footer-section">
+              <h4>BorGo Travels</h4>
+              <p>© 2025 BorGo Travels. Tutti i diritti riservati.</p>
+            </div>
+            <div class="footer-section">
+              <h4>Contatti</h4>
+              <p>Via Azzo Novello, 4 Ferrara, Italia</p>
+              <p>Tel: +39 0532-209345</p>
+              <p>Email: <a href="mailto:infooBorGo@gmail.com">infoo.BorGo@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+              <h4>Seguici</h4>
+              <p>
+                <a href="https://www.facebook.com/p/Bachelet-Ferrara-100049242535680/" aria-label="Facebook" tabindex="0" target=”_new”>Facebook</a> |
+                <a href="https://www.instagram.com/bachelet_ferrara/" aria-label="Instagram" tabindex="0" target=”_new”>Instagram</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+	  </div>
+	</main>
+	</div>
+
+</body>
+</html>
+</content>
+</create_file>
