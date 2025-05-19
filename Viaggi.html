@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Viaggi - BorGo!</title>
+  <link rel="stylesheet" href="Stile1.css" type="text/css">
+</head>
+
+<body>
+	<!--MENU-->
+	<div id="container" role="application">
+		<aside id="sidebar" aria-label="Menu laterale">
+			<div id="logo-box" aria-label="Logo placeholder" role="img"><a href="BorGo.html"><img src="img/Logo.png" alt="Logo"></a></div>
+			<nav role="navigation" aria-label="Menu principale">
+			  <a href="BorGo.html" tabindex="0">Home</a>
+			  <a href="Mission.html" tabindex="0">Mission</a>
+			  <a href="Viaggi.html" tabindex="0">Viaggi</a>
+			  <a href="ChiSiamo.html" tabindex="0">Chi Siamo</a>
+			  <a href="RoadMap.html" tabindex="0">Road Map</a>
+			</nav>
+		</aside>
+	
+    <!--PRIMA PAGINA-->
+	<main tabindex="0">
+    <!--HEADER-->    
+		<header>
+			<img src="img/ScrittaLogo.png" alt="BorGo!">
+		</header>
+	<!--MAIN INFO-->	
+    <div class="content-area">
+        <!--TOP PAGINA-->
+        <section aria-labelledby="title" class="top">
+          <h2>Prenota con noi il tuo viaggio all'interno dei Borghi</h2>
+          <div class="grande">
+            <div class="sezione1">
+              <center><p> Scegli la tua tipologia di viaggio! <br> Scegli un tema di tour (sulla sinistra) o rispondi al questionario (sulla destra) e noi penseremo a crearti una gita unica per le tue aspettative! </p></center>
+            </div>
+          </div>
+        </section>
+		<!--PRENOTAZIONE VIAGGI-->
+		<div class="sfondo2">
+			<div class="left-panel" aria-label="Categorie di Viaggio">
+				<button class="box" id="castelli" aria-pressed="false" tabindex="0"><span class="box-text">Castelli</span></button>
+				<button class="box" id="colline" aria-pressed="false" tabindex="0"><span class="box-text">Colline</span></button>
+				<button class="box" id="fiume" aria-pressed="false" tabindex="0"><span class="box-text">Fiume</span></button>
+			</div>
+			<div class="right-panel" aria-label="Questionario per la prenotazione viaggio">
+				<h2>Il tuo viaggio ideale</h2>
+				<form id="travelForm" aria-describedby="formDesc" name="formViaggi" action="mailto:infoo.borgo@gmail.com" method="get">
+					<p id="formDesc" class="sr-only">Compila il questionario per definire il tipo di viaggio che preferisci</p>
+					<fieldset>
+						<legend><label for="name">Nome Cognome: </label></legend>
+						<input type="text" id="name" name="name" required class="testo"/>
+					</fieldset>
+					<fieldset>
+						<legend><label for="name">Mail: </label></legend>
+						<input type="text" id="mail" name="mail" required class="testo"/>
+					</fieldset>
+					<fieldset>
+						<legend><label for="adventurous">Sei avventuroso?</label></legend>
+						<input type="range" id="adventurous" name="adventurous" min="1" max="5" step="1" value="3" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-label="Sei avventuroso da 1 a 5" />
+						<div style="display:flex; justify-content: space-between; font-size: 0.8rem; margin-top:4px; color: #2e7d32;">
+						  <span>Per niente</span><span>Molto</span>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend><label for="distance">Quanto lontano vuoi andare?</label></legend>
+						<input type="range" id="distance" name="distance" min="1" max="5" step="1" value="3" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-label="Vai lontano da 1 a 5" />
+						<div style="display:flex; justify-content: space-between; font-size: 0.8rem; margin-top:4px; color: #2e7d32;">
+						  <span>Poco</span><span>Molto</span>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Come vuoi arrivare alla tua destinazione?</legend>
+						<select name="car" id="car" required aria-required="true">
+						  <option value="" disabled selected>Seleziona</option>
+						  <option value="bicicletta">Bicicletta</option>
+						  <option value="macchina">Macchina</option>
+						  <option value="bus">Bus</option>
+						  <option value="treno">Treno</option>
+						</select>
+					</fieldset>
+					<fieldset>
+						<legend>Viaggi in gruppo o da solo?</legend>
+						<div class="radio-group" role="radiogroup" aria-labelledby="grpLabel">
+						  <input type="radio" id="solo" name="group" value="solo" />
+						  <label for="solo">Da solo</label>
+						  <input type="radio" id="gruppo" name="group" value="gruppo" />
+						  <label for="gruppo">In gruppo</label>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Che tipo di attività vorresti fare?</legend>
+						<div class="checkbox-group">
+						  <input type="checkbox" id="outdoor" name="outdoor" />
+						  <label for="outdoor">Stare all'aria aperta</label>
+						  <input type="checkbox" id="promenade" name="promenade" />
+						  <label for="promenade">Passeggiate</label>
+						  <input type="checkbox" id="food" name="food" />
+						  <label for="food">Assaggiare cibi tipici</label>
+						  <input type="checkbox" id="drink" name="drink" />
+						  <label for="drink">Degustazione vini</label>
+						  <input type="checkbox" id="artigian" name="artigian" />
+						  <label for="artigian">Attività di artigianato</label>
+						</div>
+					</fieldset>
+					<button type="submit" class="submit-btn" aria-label="Invia questionario">Prenota il Viaggio</button>
+				</form>
+				<script>
+					// Accessibility improvements for toggle buttons on left panel
+					const boxes = document.querySelectorAll('.left-panel .box');
+					boxes.forEach(box => {
+					  box.addEventListener('click', () => {
+						// Toggle pressed state for the clicked box and unpress others
+						boxes.forEach(b => {
+						  if(b === box) {
+							const pressed = b.getAttribute('aria-pressed') === 'true';
+							b.setAttribute('aria-pressed', !pressed);
+						  } else {
+							b.setAttribute('aria-pressed', 'false');
+						  }
+						});
+					  });
+					  box.addEventListener('keydown', e => {
+						if(e.key === "Enter" || e.key === " ") {
+						  e.preventDefault();
+						  box.click();
+						}
+					  });
+					});
+				// Form submission handling: simple alert with selected info
+					const form = document.getElementById('travelForm');
+					form.addEventListener('submit', e => {
+					  e.preventDefault();
+					  // Gathering form values
+					  const chosenCategory = Array.from(boxes).find(b => b.getAttribute('aria-pressed') === 'true');
+					  const categoryText = chosenCategory ? chosenCategory.textContent.trim() : "Nessuna categoria selezionata";
+					  const name = form.elements['name'].value;
+					  const mail = form.elements['mail'].value;
+					  const adventurous = form.elements['adventurous'].value;
+					  const distance = form.elements['distance'].value;
+					  const car = form.elements['car'].value;
+					  const group = form.elements['group'].value || "Non specificato";
+					  const outdoor = form.elements['outdoor'].checked ? "Sì" : "No";
+					  const promenade = form.elements['promenade'].checked ? "Sì" : "No";
+					  const food = form.elements['food'].checked ? "Sì" : "No";
+					  const drink = form.elements['drink'].checked ? "Sì" : "No";
+					  const artigian = form.elements['artigian'].checked ? "Sì" : "No";
+					  let summary = "Grazie per aver prenotato! Ti contatteremo fra poco con tutte le specifiche \n\n";
+					   alert(summary);
+					});
+				  </script>
+			</div>
+		</div>
+		<!--FOOTER-->
+        <footer>
+          <div class="footer-container">
+            <div class="footer-section">
+              <h4>BorGo Travels</h4>
+              <p>© 2025 BorGo Travels. Tutti i diritti riservati.</p>
+            </div>
+            <div class="footer-section">
+              <h4>Contatti</h4>
+              <p>Via Azzo Novello, 4 Ferrara, Italia</p>
+              <p>Tel: +39 0532-209345</p>
+              <p>Email: <a href="mailto:infoo.BorGo@gmail.com">infoo.BorGo@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+              <h4>Seguici</h4>
+              <p>
+                <a href="https://www.facebook.com/p/Bachelet-Ferrara-100049242535680/" aria-label="Facebook" tabindex="0" target=”_new”>Facebook</a> |
+                <a href="https://www.instagram.com/bachelet_ferrara/" aria-label="Instagram" tabindex="0" target=”_new”>Instagram</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+	  </div>
+	</main>
+	</div>
+
+</body>
+</html>
+</content>
+</create_file>
